@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        label{
+            display: block;
+        }
+        input{
+            width: 100%;
+            border:1px solid grey;
+        }
+        /* filtracija pagal atributa */
+        input[type="checkbox"],
+        input[type="radio"]{
+            width: auto;
+        }
+        select{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <!-- input savaime uzsidarantis elementas -->
+        <label for="">jusu vardas</label>
+        <input type="text" placeholder="Vardenis Pavardednis" required>
+        <label for="">Prodduktu kiekis</label>
+        <input type="number" placeholder="Iveskite kieki" min="1" max="30"value="1" required>
+        <label for="">pasto adresas</label>
+        <input type="email" placeholder="email@gmail.com" required>
+        <input type="password"required>
+        <label for="">pasirinkite spalva</label>
+        <input type="color">
+        <label for="">pasirinkite fiksuota spalva</label>
+        <input type="color">
+        <input type="color" list="spalvos">
+        <datalist id="spalvos">
+            <option value="#FFFFFF">balta</option>
+            <option value="#000000">juoda</option>
+        </datalist>
+        <label for="">pasirinkite data</label>
+        <input type="date">
+        <label for="">Pasirinkite laika</label>
+        <input type="datetime-local">
+        <label>pasirinkite faila</label>
+        <input type="file">
+        <label>pasirinkite failus</label>
+        <input type="file" multiple>
+        <h3>Checkboxes</h3>
+        <label ><input type="checkbox">
+        susipazinau su privalumo politika</label>
+        <input type="checkbox" id="newletter">
+        <label for="newletter">noreciau gauti naujienlaiskius</label>
+        <h3>Radio</h3>
+        <label>
+        <input type="radio" name="topic">
+        <span>Klientu informacija</span>
+    </label>
+        <label>
+        <input type="radio" name="topic">
+        <span>Garantijos paslaugos</span>
+    </label>
+        <label>
+        <input type="radio" name="topic">
+        <span>Saskaitos</span>
+    </label>
+    <select>
+        <option>klientu informacija</option>
+        <option>Garantijos paslaugos</option>
+        <option>saskaitos</option>
+    </select>
+        <button>siusti</button>
+    </form>
+</body>
+</html>

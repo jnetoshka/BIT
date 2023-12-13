@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.box{
+    width: 300px;
+    height:300px;
+    justify-content: center;
+    color: white;
+    display: flex;
+    font-size: 60px;
+    text-align: center;
+}
+.color1{
+    background-color:blue;
+}
+.color2{
+    background-color:aqua;
+}
+
+.color3{
+    background-color:rgb(140, 255, 0);
+}
+.color4{
+    background-color:rgb(255, 0, 179);
+}
+.rotate{
+    /* повернуть элемент */
+    transform: rotate(45deg);
+}
+.scale{
+    margin-top:100px ;
+    /* масштаб */
+ transform: scale(2);
+}
+.skew{
+margin-top: 100px;
+transform: skew(-25deg, 50deg);
+}
+.translate{
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+    </style>
+</head>
+<body>
+    <div class="box color1 rotate">1</div>
+    <div class="box color2 scale">2</div>
+    <div class="box color3 skew">2</div>
+    <div class="box color4 translate">2</div>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem quibusdam rem nostrum, magnam exercitationem, dolores mollitia, id accusamus ducimus temporibus quia blanditiis nam sequi tempore necessitatibus culpa magni explicabo cum atque officia. Quis quia placeat dignissimos molestiae doloribus quam asperiores, magni molestias ab neque, exercitationem a libero nisi tenetur. Tenetur.
+</body>
+</html>

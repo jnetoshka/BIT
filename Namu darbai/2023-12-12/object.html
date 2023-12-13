@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+        table{
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        td{
+            text-align: center;
+        }
+        .space-right{
+            margin-right: 1rem;
+        }
+        form div{
+          width: 20%;
+          
+        }
+        div label{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom:0.5rem;
+        }
+        input{
+            padding: 10px 20px;
+            text-align: start;
+        }
+        button{
+            color: white;
+            border: none;
+            background-color: rgb(63, 135, 235);
+            border-radius: 4px;
+            padding: 5px 15px;
+        }
+        .clean{
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead><tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Nationality</th>
+        </tr></thead>
+        <tbody></tbody>
+    </table>
+    <div>
+    <form>
+        <h3>Elementu pridejimas</h3>
+        <div>            
+            <label>
+            <span class="space-right">First Name</span>
+            <input 
+            type="text"
+            placeholder="First Name"
+            id="firstNameInput">
+        </label>
+    </div>
+        <div>            
+            <label>
+            <span class="space-right">Last Name</span>
+            <input 
+            type="text"
+            placeholder="Last Name"
+            id="lastNameInput">
+        </label>
+    </div>
+        <div>            
+            <label>
+            <span class="space-right">Age</span>
+            <input 
+            type="text"
+            placeholder="Age"
+            id="ageInput">
+        </label>
+    </div>
+        <div>            
+            <label>
+            <span class="space-right">Nationality</span>
+            <input 
+            type="text"
+            placeholder="Nationality"
+            id="nationalityInput">
+        </label>
+    </div>
+    </form>
+    <div>
+        <button id="add-button">&check;</button>
+    </div>
+    <div class="clean block">
+        <h3>Elementu pasalinimas</h3>
+    <label>
+        <span class="space-right">Person number</span>
+        <input type="number"
+        placeholder="Person number"
+        id="personNumberInput">
+    </label>
+    <div>
+        <button id="delete">&times;</button>
+        <h4 id="text">enter the number</h4>
+    </div> 
+        </div> 
+</div>
+<script src="../2023-12-12/object.js"></script>
+</body>
+</html>

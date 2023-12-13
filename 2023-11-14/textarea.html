@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type="text"]{
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid grey;
+            padding:10px;
+        }
+        /* меняет свойства при использовании */
+        input[type="text"]:focus{
+            outline: none;
+            border:3px solid red;
+            color red
+        }
+        textarea{
+            width: 10%;
+            height:300px;
+            box-sixing: border-box;
+            border:1px solid grey;
+            /* убирает автоматическоге увеличение  */
+            resize:none;
+            resize: :horizontal;
+            
+        }
+
+        
+    </style>
+</head>
+<body>
+    <input type="text">
+    <h3>text area</h3>
+    <textarea placeholder="iveskite zinutes teksta"></textarea>
+</body>
+</html>

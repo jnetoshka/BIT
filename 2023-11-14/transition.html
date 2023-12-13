@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transitions</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: blueviolet;
+            transition: all 1s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* 1=100% */
+            opacity 1;
+        }
+        .box:hover{
+            background-color: aquamarine;
+            /* 1s=1000ms */
+            /* 0,5s=500ms */
+            /* .5s=500ms */
+            width: 500px;
+            height: 500px;
+            top: 50px;
+            left: 50px;
+            opacity: .2;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"><span>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, aperiam.
+    </span></div>
+</body>
+</html>

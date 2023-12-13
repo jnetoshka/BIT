@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables</title>
+    <style>
+        body{
+            --background-color: white;
+            --input-background-color:white;
+            --input-border-color:rgb(189, 189, 189);
+            --botton-background-color:rgb(231, 231,231);
+            --botton-border-color:rgb(39, 39,39);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: var(--background-color)
+        }
+        body.dark{
+            --background-color:rgb(33, 33, 33);
+            --input-background-color:rgb(59, 59, 59);
+            --input-border-color:rgb(75, 75, 75);
+            --botton-background-color:rgb(60,60,60);
+            --botton-border-color:rgb(255, 255,255);
+
+        }
+        form{
+            text-align: center;
+        }
+        input{
+            width: 768px;
+            margin: 0 auto;
+            border: 1px solid var(--input-border-color);
+            border-radius: 25px;
+            padding: 10px 25px;
+            display: block;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            background-color: var(--input-background-color)
+        }
+
+        button{
+            background-color:  var(--botton-background-color);
+            color: var(--botton-border-color);
+            border: none;
+            padding:8px 10px;
+        }
+    </style>
+</head>
+<body class="dark">
+<form action="">
+    <input type="text" name="" id="">
+    <button>Search</button>
+</form>
+</body>
+</html>

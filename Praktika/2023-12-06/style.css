@@ -1,0 +1,38 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container{
+    width: 25rem;
+    height: 12rem;
+    background-color: pink;
+    padding: 1rem;
+    text-align: center;
+}
+span{
+    font-size: 2rem;
+}
+.buttons{
+    margin-top:2rem;
+}
+button{
+    margin:5px;
+    border: none;
+    padding:8px;
+    border-radius: 5px;
+    /* курсор наводится  на кнопки */
+    cursor: pointer;
+}
+.subtract{
+    background-color: red;
+    color: white;
+}
+.reset{
+    background-color: white;
+}
+.add{
+    background-color: green;
+    color: white;
+}

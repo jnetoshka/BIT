@@ -1,0 +1,68 @@
+.color1{
+    background-color: #60267F;
+}
+.up{
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    color: white;
+}
+.logo{
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 62px;
+    color: #9A54BC;
+}
+nav ul{
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #2B0236;
+}
+.btn-outline-primary {
+    --bs-btn-color:  #9A54BC;
+    --bs-btn-border-color:  #9A54BC;
+    --bs-btn-hover-bg: #9A54BC;
+    --bs-btn-hover-border-color: #9A54BC;
+    border: 2px solid;
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+.btn-primary{
+    --bs-btn-bg: #9A54BC;;
+    --bs-btn-border-color: #9A54BC;
+    --bs-btn-hover-bg: none;
+    --bs-btn-hover-border-color:  #9A54BC;
+    --bs-btn-hover-color: #9A54BC;
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    border: 2px solid;
+}
+h1{
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 64px;
+
+}
+.boxb{
+    border: 3px solid #9A54BC;
+    width: 277px;
+    height:537px;
+    z-index: 1;
+}
+.cic1{
+    background-color: #f5e1ffdb;
+    width: 538px;
+    height: 538px;
+    z-index: 0;
+}
+.cic2{
+    background-color: #f5e1ff4c;
+    width: 905px;
+    height: 905px;
+    z-index: -1;
+}
+.logos ul{
+    
+}

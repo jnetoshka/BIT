@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rem em vw vh</title>
+    <style>
+
+        html{
+            font-size: 26px;
+        }
+        .box{
+            /* 100 % ширина экрана */
+            width: 100vw;
+            /* 100% высота экрана */
+            height: 100vw;
+            background-color: pink;
+        }
+        .color2{
+            background-color: yellow;
+        }
+        .content_element{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+        .modal{
+            background-color: blueviolet;
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100vw;
+            height: 100vw;
+        }
+        .box-rem{
+            /* 1rem размер шрифта по умолчанию размер шрифта 16px */
+            width: 10rem;
+            height: 10rem;
+            background-color: coral;
+        }
+        .box-parent{
+            font-size: 56px;
+        }
+        .box-em{
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box color2"></div>
+    <div class="content_element">
+        <div class="modal"></div>
+    </div>
+    <div class="box-rem"></div>
+    <div class="box-parent">
+        <div class="box-em"></div>
+    </div>
+</body>
+</html>
