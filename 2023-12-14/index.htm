@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <div class="row">
+                <!-- -12 vienoje eiluteje,tie columnai kelsis i sekacnia eilute -->
+                <div class="col-4">
+                    <label for="">Pavadinimas</label>
+                    <input 
+                    type="text" 
+                    id="title"
+                    name="title"
+                    class="form-control">
+                </div>
+                <div class="col-4">
+                    <label for="">Kaina</label>
+                    <input 
+                    type="text" 
+                    id="price"
+                    name="price"
+                    class="form-control">
+                </div>
+                <div class="col-4">
+                    <label for="">Kiekis</label>
+                    <input 
+                    type="text" 
+                    id="stock"
+                    name="stock" 
+                    class="form-control">
+                </div>
+                <div class="col-4 mt-2">
+                    <label for="">Prekinis zenklas</label>
+                    <input 
+                    type="text" 
+                    id="brand"
+                    name="brand" 
+                    class="form-control">
+                </div>
+                <div class="col-4 mt-2">
+                    <label for="category">Kategorija</label>
+                    <select name="category" id="category" class="form-select">
+                        <option value="">smartphones</option>
+                        <option value="">laptops</option>
+                        <option value="">fragrances</option>
+                        <option value="">skincare</option>
+                        <option value="">groceries</option>
+                        <option value="">home-decoration</option>
+                    </select>
+                </div>
+                <div class="col-4 mt-2">
+                    <button 
+                        class="btn btn-primary mt-4" 
+                        id="submit">Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Prekes pavadinimas</th>
+                    <th>Kaina</th>
+                    <th>Kiekis</th>
+                    <th>Prekinis zenklas</th>
+                    <th>Kategorija</th>
+                    <th>Istrynimas</th>
+                    <th>Atnaujinimas</th>
+                </tr>
+            </thead>
+            <tbody id="dynamic-data">
+                <tr>
+                    <td>1</td>
+                    <td>Apple produkt</td>
+                    <td>1.50</td>
+                    <td>1</td>
+                    <td>Apple</td>
+                    <td>Maistas</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="./products.js"></script>
+    <script>
+        //CRUD:
+        // CREATE -sukurti irasa good
+        // READ - Perziureti irasa good
+        //UPDATE - Atnaujinti irasa
+        // DELETE - istrinti irasa good
+        let editMode = false;
+        let currentProduct;
+        const dynamicDataElement = document.getElementById("dynamic-data"),titleInputElement = document.getElementById('title'),
+        priceInputElement = document.getElementById('price'),
+        stockInputElement = document.getElementById('stock'),
+        brandInputElement = document.getElementById('brand'),
+        categoryInputElement = document.getElementById('category'),
+        submitButtonElement = document.getElementById('submit');
+
+
+        //Automatinis funkcijos iskvietimas apskliaudus funkcija  ir  uz  jos padejus skliaustelius
+        const getTableContents = () =>{
+            let dynamicHTML= ``;
+
+            for (const product of products)
+            {
+                dynamicHTML +=`<tr>
+                    <td>${product.id}</td>
+                    <td>${product.title}</td>
+                    <td>${product.price}</td>
+                    <td>${product.stock}</td>
+                    <td>${product.brand}</td>
+                    <td>${product.category}</td>
+                    <td>
+                        <button class="btn btn-danger" onclick="deleteProduct(${product.id})">Istrinti</button>
+                        </td>
+                    <td>
+                        <button class="btn btn-success" onclick="setEdit(${product.id})">Atnaujinti</button>
+                        </td>
+                </tr>`;
+            }
+            dynamicDataElement.innerHTML = dynamicHTML;
+        };
+        getTableContents();
+        
+        const createNewRecord = (event) =>{
+            //prevencija nuo iprastinio elgesio,
+            event.preventDefault();
+            const newProduct ={
+                id: products[products.length - 1].id + 1,
+                title: titleInputElement.value,
+                price: priceInputElement.value,
+                stock: stockInputElement.value,
+                brand: brandInputElement.value,
+                category: categoryInputElement.value,
+            };
+            products.push(newProduct);
+
+            getTableContents();
+        };
+        submitButtonElement.onclick = createNewRecord;
+
+        //elementu istrynimas
+        const deleteProduct = (id) =>{
+            let elementIndex = products.findIndex(value=>value.id===id);
+            products.splice(elementIndex,1);
+            getTableContents();
+        };
+        
+        const updateProduct=(event)=>{
+            event.preventDefault();
+            console.log('veikiu!');
+            products[currentProduct].title=titleInputElement.value
+            products[currentProduct].price=priceInputElement.value
+            products[currentProduct].stock=stockInputElement.value
+            products[currentProduct].brand=brandInputElement.value
+            products[currentProduct].category=categoryInputElement.value
+
+            getTableContents();
+            currentProduct = undefined;
+            editMode=false;
+            submitButtonElement.onclick = createNewRecord;
+            submitButtonElement.innerText = "submit";
+            submitButtonElement.classList.remove("btn-success");
+            submitButtonElement.classList.add("btn-primary");
+
+            titleInputElement.value = "";
+            priceInputElement.value = "";
+            stockInputElement.value = "";
+            brandInputElement.value = "";
+            categoryInputElement.value = "";
+        
+
+
+        };
+
+    //elemento atnaujinimas
+        const setEdit = (id) =>{
+            let elementIndex = products.findIndex(value=>value.id===id);
+            const product= products[elementIndex];
+            titleInputElement.value = product.title;
+            priceInputElement.value = product.price;
+            stockInputElement.value = product.stock;
+            brandInputElement.value = product.brand;
+            categoryInputElement.value = product.category;
+
+            submitButtonElement.innerText = "Update";
+            submitButtonElement.classList.add("btn-success");
+            submitButtonElement.classList.add("btn-primary");
+            submitButtonElement.onclick=updateProduct;
+            currentProduct = elementIndex;
+            editMode = true;
+        };
+        
+    </script>
+</body>
+</html>
