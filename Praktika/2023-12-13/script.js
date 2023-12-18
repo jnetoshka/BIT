@@ -5,7 +5,6 @@ reset = document.querySelector(".reset"),
 result = document.querySelector(".results"),
 hide = document.querySelector(".hide")
 
-hide.style.hide = "none";
 
 calculate.addEventListener("click", calBMI);
 
@@ -46,6 +45,5 @@ function showResults(value, color){
 }
 function reload(){
     window.location.reload()
-    hide.style.hide = "none";
 }
 
