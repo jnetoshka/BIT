@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+input{
+    padding: 0.5rem 1.50rem;
+    border-radius: 6px;
+}
+    </style>
+</head>
+<body>
+    <input type="text"
+    placeholder="Iveskite varda arba jo fragmentra"
+    id="name"/>
+
+    <ol id="list"></ol>
+    <script>
+        const names=['Justinas','Asta','Jevgenija','Marija','Antanas'];
+        const nameInputElement = document.querySelector("#name");
+
+        // document.querySelector('#list'.value='')
+        function showValues(list){
+            let dynamicHTML="";
+        for (const name of list){
+            dynamicHTML += `<li>${name}</li>`;
+        }
+            document.querySelector('#list').innerHTML=dynamicHTML;
+        }
+
+        showValues(names);
+
+        nameInputElement.addEventListener('keyup',(event)=>{
+            //1 budas kaip gauti inputo reiksme
+            //const inputValue - event.target.value;
+            //2 budas
+            const inputValue =  nameInputElement.value;
+            const filteredArray = names.filter((value)=>
+            value.toLowerCase().includes(inputValue.toLowerCase()));
+            
+            showValues(filteredArray);
+
+            console.log(filteredArray);
+         });
+    
+
+        // const nameInputElement = document.querySelector("#name")
+        // nameInputElement.addEventListener('keydown',(event)=>{
+        //     console.log("Mygtukas buvo prispaustas")
+
+        // })
+    </script>
+</body>
+</html>
