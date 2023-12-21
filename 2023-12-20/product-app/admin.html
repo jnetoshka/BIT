@@ -11,6 +11,10 @@
 </head>
 <body>
     <div class="container">
+        <nav class="mb-3">
+            <a href="./products.html" class="me-3 btn btn-primary">Productai</a>
+            <a href="./admin.html" class="me-3 btn btn-primary">Admin panele</a>
+        </nav>
         <form action="">
             <div class="row">
                 <!-- -12 vienoje eiluteje,tie columnai kelsis i sekacnia eilute -->
@@ -161,7 +165,11 @@
             localStorage.setItem('products',"[]")
         }
         const products = JSON.parse(localStorage.getItem('products'));
-        let curretntId = 1;
+        
+        if (!localStorage.getItem("currentId")){
+            localStorage.setItem("currentId","1")
+        }
+        let curretntId = +localStorage.getItem("currentId");
         let editMode = false;
         let currentProduct;
 
@@ -206,7 +214,34 @@
         const showModal= (id)=> {
             let elementIndex = products.findIndex(value=>value.id===id);
             const product=products[elementIndex]
+            let dynamicHTML = `<div id="modalBody" style="width:100%; height:100%"> <div style="max-width: 70%;margin: 0 auto; padding: .5rem;">
+            <img src="${product.thumbnail}" 
+            alt="product photo">
+            <div class="product-details">
+                    <div class="row">
+                        <span class="col-lg-2 fw-bold">Nuolaida</span>
+                        <span class="col-lg-1">-${product.discountPercentage}</span>
+                    </div>
+                    <div class="row">
+                        <span class="col-lg-2 fw-bold">ivertinimas</span>
+                        <span class="col-lg-1">${product.rating}3</span>
+                    </div>
+                    <div class="row">
+                        <span class="col-lg-2 fw-bold">Aprasimas</span>
+                        <span class="col-10">${product.description}</span>
+                    </div>
+                    </div>
+                    <button class="btn btn-danger mt-3 onclick="modalElement.close()">Uzdaryti</button>
+            </div></div>`
+            modalElement.innerHTML=dynamicHTML
+            document.querySelector("#modalBody").onclick = (event)=>{
+                event.stopPropagation();
+                console.log("Clicked on modal winddow")
+            }
             modalElement.showModal();
+        }
+        modalElement.onclick=()=>{
+            modalElement.close()
         }
         
         const createNewRecord = (event) =>{
@@ -227,6 +262,7 @@
             curretntId++;
             products.push(newProduct);
             localStorage.setItem('products',JSON.stringify(products));
+            localStorage.setItem("cerrentId", curretntId);
 
             getTableContents();
         };
@@ -243,11 +279,15 @@
         const updateProduct=(event)=>{
             event.preventDefault();
             console.log('veikiu!');
-            products[currentProduct].title=titleInputElement.value
-            products[currentProduct].price=priceInputElement.value
-            products[currentProduct].stock=stockInputElement.value
-            products[currentProduct].brand=brandInputElement.value
-            products[currentProduct].category=categoryInputElement.value
+            products[currentProduct].title=titleInputElement.value;
+            products[currentProduct].price=priceInputElement.value;
+            products[currentProduct].stock=stockInputElement.value;
+            products[currentProduct].brand=brandInputElement.value;
+            products[currentProduct].category=categoryInputElement.value;
+            products[currentProduct].thumbnail=photoElement.value;
+            products[currentProduct].rating=ratingElement.value;
+            products[currentProduct].discountPercentage=discountElement.value;
+            products[currentProduct].description=descriptionElement.value;
 
             getTableContents();
             currentProduct = undefined;
@@ -262,6 +302,10 @@
             stockInputElement.value = "";
             brandInputElement.value = "";
             categoryInputElement.value = "";
+            photoElement.value = "";
+            ratingElement.value = "";
+            discountElement.value = "";
+            descriptionElement.value = "";
             localStorage.setItem("products".JSON.stringify(products))
         
 
@@ -272,11 +316,16 @@
         const setEdit = (id) =>{
             let elementIndex = products.findIndex(value=>value.id===id);
             const product= products[elementIndex];
+            //inputu uzpildimas
             titleInputElement.value = product.title;
             priceInputElement.value = product.price;
             stockInputElement.value = product.stock;
             brandInputElement.value = product.brand;
             categoryInputElement.value = product.category;
+            photoElement.value = product.thumbnail;
+            ratingElement.value = product.rating;
+            discountElement.value = product.discountPercentage;
+            descriptionElement.value = product.description;
 
             submitButtonElement.innerText = "Update";
             submitButtonElement.classList.add("btn-success");
