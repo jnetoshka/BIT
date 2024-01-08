@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocktail Bar</title>
+    <link rel="shortcut icon" href="./images/icon.png">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="modal-bg None">
+        <div class="modal"><div class="modal-close-button">X</div></div>
+    </div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#one" class="head">Home</a></li>
+                <li><a href="#two" class="head">About Us</a></li>
+                <li><a href="#three" class="head">Menu</a></li>
+            </ul>
+        </nav>
+    </header>
+<div>
+    <section id="one" class="bg1">
+<div>
+    <h1 class="text1">Exclusive drinks</h1>
+    <p class="text2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam labore placeat consectetur, nobis nesciunt veritatis, repellendus quae enim quaerat, tempore tempora reprehenderit at dolor mollitia laudantium. Laudantium blanditiis quia, nisi aspernatur fugit repudiandae, quibusdam, quidem labore explicabo voluptatibus animi ratione!</p>
+</div>
+    </section>
+    <section id="two" class="bg2">
+        <div class="parent">
+            <h1 class="text3 child">Cocktail Bar</h1>
+                <div class="child">
+            <p class="text4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique at eveniet explicabo ea omnis neque beatae enim accusamus error. Voluptate quaerat autem, itaque quasi, nisi expedita veniam, minima animi tenetur doloribus ducimus aut obcaecati exercitationem molestias consequuntur et provident pariatur? Similique optio illo voluptatem minima fugiat! Deserunt cupiditate voluptate vel? Corporis doloremque distinctio, error non dicta ea voluptatem impedit aut.</p>
+                </div>
+                <button class="button child" onclick="readMore()">View more</button>
+        </div>
+    </section>
+    <section id="three" class="bg3">
+        <h2 class="text5">Mix & Match</h2>
+<div class="space">
+    <input type="text"
+            id="coctail-name-filter"
+            placeholder="Cocktail name">
+    <select id="category-select">
+        <option value="">Category</option>
+    </select>
+    <select id="glass-type-select">
+        <option>Choose a glass</option>
+    </select>
+    <select id="ingredient-select">
+        <option>Ingredients</option>
+    </select>
+    <button class="formbut" id="search">Search</button>
+    <button class="formbut" id="random">Random</button>
+
+</div>
+    </section>
+    <div class="drinks"></div>
+</div>
+    <script  src="./script.js"></script>
+</body>
+</html>
