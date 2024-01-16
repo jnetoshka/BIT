@@ -1,8 +1,8 @@
 function sum(a, b) {
-	return a + b;
+  return a + b;
 }
 const subtract = (a, b) => {
-	return a - b;
+  return a - b;
 };
-//Funkcijos exportavimas
-module.exports = { sum: sum, subtract: subtract };
+// module.exports = sum; // экспорт функции без круглых скобок
+module.exports = { sum: sum, subtract: subtract }; //  эспорт объекта
